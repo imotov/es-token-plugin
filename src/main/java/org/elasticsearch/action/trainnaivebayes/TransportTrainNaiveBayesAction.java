@@ -58,6 +58,7 @@ import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.script.SharedMethods;
 import org.elasticsearch.script.pmml.PMMLModelScriptEngineService;
+import org.elasticsearch.search.SearchRequestParsers;
 import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilder;
 import org.elasticsearch.search.aggregations.Aggregations;
@@ -93,8 +94,8 @@ public class TransportTrainNaiveBayesAction extends HandledTransportAction<Train
     @Inject
     public TransportTrainNaiveBayesAction(Settings settings, ThreadPool threadPool, TransportService transportService,
                                           ActionFilters actionFilters,
-                                          IndexNameExpressionResolver indexNameExpressionResolver, Client client, ClusterService
-                                                  clusterService) {
+                                          IndexNameExpressionResolver indexNameExpressionResolver, Client client,
+                                          ClusterService clusterService) {
         super(settings, TrainNaiveBayesAction.NAME, threadPool, transportService, actionFilters, indexNameExpressionResolver,
                 TrainNaiveBayesRequest::new);
         this.client = client;
